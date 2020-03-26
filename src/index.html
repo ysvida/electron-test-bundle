@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello world!</title>
+    <script src="./_frame/front/ipcFront.js"></script>
+    <script type="text/javascript">
+      function fn_onloadBody () {
+        ipcFrontCtrl.init()
+      }
+      function fn_readFile () {
+        ipcFrontCtrl.request('TE0001', 'readFile', {
+          fileName: 'src/resource/sample/test.txt',
+          encode: 'utf8'
+        }, {
+          success: (args) => {
+            alert('<성공>\n' + args)
+          },
+          error: (args) => {
+            alert('<실패>\n' + args)
+          }
+        })
+      }
+      function fn_writeFile () {
+        ipcFrontCtrl.request('TE0001', 'writeFile', {
+          fileName: 'file_' + new Date().getTime() + '.txt',
+          data: '파일에 입력할 텍스트입니다.\n하하하!!!',
+          encode: 'utf8'
+        }, {
+          success: (args) => {
+            alert('<성공>\n' + args)
+          },
+          error: (args) => {
+            alert('<실패>\n' + args)
+          }
+        })
+      }
+      function fn_osInfo () {
+        ipcFrontCtrl.request('TE0001', 'getOsInfo', '', {
+          success: (args) => {
+            alert('성공')
+          },
+          error: (args) => {
+            alert('실패')
+          }
+        })
+      }
+    </script>
+  </head>
+  <body onload="fn_onloadBody()">
+    <h1>Hello~!!</h1>
+    <button onclick="fn_readFile()">파일읽기</button>
+    <button onclick="fn_writeFile()">파일쓰기</button>
+    <button onclick="fn_osInfo()">OS정보</button>
+  </body>
+</html>

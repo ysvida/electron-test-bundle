@@ -1,0 +1,23 @@
+{
+  "name": "electron-test-bundle",
+  "version": "1.0.0",
+  "description": "for training",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysvida/electron-test-bundle.git"
+  },
+  "author": "ysvida",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ysvida/electron-test-bundle/issues"
+  },
+  "homepage": "https://github.com/ysvida/electron-test-bundle#readme",
+  "devDependencies": {
+    "electron": "^8.2.0"
+  }
+}
